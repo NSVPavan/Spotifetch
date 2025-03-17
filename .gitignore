@@ -1,1 +1,17 @@
+# Ignore environment variables and sensitive data
 .env
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore cache files
+.cache/
+*.cache
+
+# Ignore the downloads folder (contains user-downloaded content)
+downloads/
+
+# Ignore virtual environment (if used)
+venv/

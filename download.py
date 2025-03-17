@@ -4,10 +4,13 @@ import os
 # Create downloads directory if it doesn't exist
 os.makedirs("downloads", exist_ok=True)
 
-def download_song(song_name):
+def download_song(song_name, playlist_dir):
+    # Ensure the playlist directory exists
+    os.makedirs(playlist_dir, exist_ok=True)
+
     ydl_opts = {
         'format': 'bestaudio/best',
-        'outtmpl': f"downloads/{song_name}.mp3",
+        'outtmpl': os.path.join(playlist_dir, f"{song_name}.mp3"),
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
@@ -21,4 +24,4 @@ def download_song(song_name):
 
 # Example usage
 # if __name__ == "__main__":
-#     download_song("Shape of You Ed Sheeran")
+#     download_song("Shape of You Ed Sheeran", "downloads/My Playlist")
